@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<button type="button" class="button" id="embedtweet-copylink" name="insert">Insert Permalink</a><br>
+			<button type="button" class="button" id="embedtweet-copylink" name="insert">Insert Permalink</button><br>
 			<button type="submit" class="button-primary" id="embedtweet-submit" name="submit">Insert Tweet</button><br>
 		</div>
 	</form>
