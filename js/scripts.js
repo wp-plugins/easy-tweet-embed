@@ -1,97 +1,91 @@
 
-jQuery(function(){	
-	var form = jQuery('#TB_inline');
+jQuery(document).ready(function(){	
 	
+	var anchorText = jQuery('#embedtweet-text');
+	var tweet = jQuery('#embedtweet-tweet');
+	var counterTweetField = jQuery('#counter-tweet');
+	var copyButton = jQuery('#embedtweet-copylink');
+	var submitButton = jQuery('#embedtweet-submit');
+
 	// function for counting tweet length
 	var tCounter = function() {
-		return 140 - twttr.txt.getTweetLength(form.find('#embedtweet-tweet').val());
+		return 140 - twttr.txt.getTweetLength(tweet.val());
 	};
 	
-	var tweet = jQuery('#embedtweet-tweet');
-	
-	var counterTweetField = tweet.parent().find('#counter-tweet');
+	var countTweetText = function() {
+		counterTweetField.html( tCounter() + ' characters left');
+		if(tCounter() >= 0) {
+			counterTweetField.css("color", "black");
+		} else {
+			counterTweetField.css("color", "red");
+		}
+	};
 	
 	var tweetLink = "https://twitter.com/intent/tweet?text=";
 	
-	// function for counting character on EmbedTweet Input
-	form.find('#embedtweet-tweet').each(function() {  
-		counterTweetField.html( tCounter() + ' characters left');
-		
-		// bind on key up event  
-		jQuery(this).keyup(function(){
-			counterTweetField.html( tCounter() + ' characters left');
-			if(tCounter() >= 0) {
-				counterTweetField.css("color", "black");
-			} else {
-				counterTweetField.css("color", "red");
-			}
-		});  
+	// bind on key up event  
+	tweet.keyup(function(){
+		countTweetText();
 	});
 	
 	// function for Anchor Text filler if there is a selection
-	form.find('#embedtweet-text').each(function() {
-		var anchorText = tinyMCE.activeEditor.selection.getContent();
-		if(anchorText !== "") {
-			form.find(this).val(anchorText);
+	anchorText.each(function() {
+		var selectedText = tinyMCE.activeEditor.selection.getContent();
+		if(selectedText !== "") {
+			jQuery(this).val(selectedText).css('color','#000');
 		}
 	});
 	
 	// function for Tweet Text filler if there is a selection
-	form.find('#embedtweet-tweet').each(function() {
+	tweet.each(function() {
 		var selectedText = tinyMCE.activeEditor.selection.getNode().href;
 		if(selectedText !== undefined && selectedText.indexOf(tweetLink) !== -1){
-			var tweetText = decodeURIComponent(selectedText
-																				.replace(tweetLink, ""));
+			var tweetText = decodeURIComponent(selectedText.replace(tweetLink, ""));
 			if(tweetText !== "") {
-				form.find(this).val(tweetText);
+				jQuery(this).val(tweetText);
 			}
 		}
+		countTweetText();
 	});
 	
 	// function for insert permalink on Tweet Text
-	form.find('#embedtweet-copylink').click(function(){
+	copyButton.click(function(){
 		var sPermalink = tinyMCEPopup.getWindowArg('s_permalink');
 		if(tweet.val() === tweet.attr('placeholder')) {
 			tweet.val(sPermalink);
-			counterTweetField.html( tCounter() + ' characters left');
+			countTweetText();
 			tweet[0].selectionStart = tweet[0].selectionEnd = tweet.val().length;
 			tweet.css('color', '#000');
 		} else {
 			tweet.val(tweet.val() + " " + sPermalink);
-			counterTweetField.html( tCounter() + ' characters left');
+			countTweetText();
 			tweet[0].selectionStart = tweet[0].selectionEnd = tweet.val().length;
 		} 
 	});
 	
 	// handles the click event of the submit button
-	form.find('#embedtweet-submit').click(function(){
-		if(tCounter() >= 0 && form.find('#embedtweet-text').val() !== "") {
-			/*	
-			var shortcode = '[embedtweet';
-			shortcode += ' text="' + form.find('#embedtweet-text').val() + '"';
-			shortcode += ' tweet="' + form.find('#embedtweet-tweet').val() + '"';
-			shortcode += ']';
-			*/
+	submitButton.click(function(){
+		if(tCounter() >= 0 && anchorText.val() !== "") {
 			
-			var tweetUrl = '<a title="' + form.find('#embedtweet-text').val();
+			var tweetUrl = '<a class="embedtweet" title="' + anchorText.val();
 			tweetUrl += '" href="https://twitter.com/intent/tweet?text=';
-			tweetUrl += encodeURIComponent(form.find('#embedtweet-tweet').val());
+			tweetUrl += encodeURIComponent(jQuery('#embedtweet-tweet').val());
 			tweetUrl += '" rel="nofollow" target="_blank">';
-			tweetUrl += form.find('#embedtweet-text').val() + '</a>';
+			tweetUrl += anchorText.val() + '</a>';
 			
 			// inserts the shortcode into the active editor and close it
 			tinyMCEPopup.editor.execCommand('mceInsertContent', 0, tweetUrl);
 			tinyMCEPopup.close();
-		} else if(tCounter() >= 0 && form.find('#embedtweet-text').val() === "") {
-			window.alert("Please fill Anchor Text field");
-		} else if(tCounter() < 0 && form.find('#embedtweet-text').val() !== "") {
-			window.alert("Your tweet is more than 140 character, please make it shorter and submit again.");
+		} else if(tCounter() >= 0 && anchorText.val() === "") {
+			alert("Please fill Anchor Text field");
+		} else if(tCounter() < 0 && anchorText.val() !== "") {
+			alert("Your tweet is more than 140 character, please make it shorter and submit again.");
 		} else {
-			window.alert("Your tweet is more than 140 character, please make it shorter and submit again and please fill Anchor Text field");
+			alert("Your tweet is more than 140 character, please make it shorter and submit again and please fill Anchor Text field");
 		}
 	});
 	
-	form.find('[placeholder]').focus(function() {
+	jQuery('[placeholder]').focus(function() {
 		var input = jQuery(this);
 		if (input.val() === input.attr('placeholder')) {
 			input.val('');
@@ -104,5 +98,20 @@ jQuery(function(){
 			input.val(input.attr('placeholder'));
 		}
 	}).blur();
-	
+
+	// Outbound Link Tracking with Google Analytics
+	// Requires jQuery 1.7 or higher (use .live if using a lower version)
+	jQuery("a.embedtweet").on('click',function(e){
+		var url = jQuery(this).attr("href");
+		if (e.currentTarget.host != window.location.host) {
+			_gaq.push(['_trackEvent', 'Easy Embed Tweet', e.currentTarget.host, url, 0]);
+			if (e.metaKey || e.ctrlKey) {
+				var newtab = true;
+			}
+			if (!newtab) {
+				e.preventDefault();
+				setTimeout('document.location = "' + url + '"', 100);
+			}
+		}
+	});
 });
