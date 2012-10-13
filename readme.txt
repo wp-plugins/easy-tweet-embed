@@ -4,7 +4,7 @@ Donate link: http://www.leavingworkbehind.com/easy-tweet-embed/
 Tags: twitter
 Requires at least: 3.4.1
 Tested up to: 3.4.2
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,9 @@ There have been no frequently asked questions yet.
 
 == Changelog ==
 
+= 1.6.2 =
+Revision for uncommitted file.
+
 = 1.6.1 =
 * Shortcut feature added.
 * Speed increase.
@@ -51,6 +54,9 @@ There have been no frequently asked questions yet.
 * First public release.
 
 == Upgrade Notice ==
+
+= 1.6.2 =
+Revision for uncommitted file.
 
 = 1.6.1 =
 This version of Easy Tweet Embed adds a keyboard shortcut for adding new tweets (Windows: Ctrl + Shift + E, or Mac: Cmd + Shift + E). It also adds the Easy Tweet Embed button to the Distraction Free Editor. Finally, we have been able to increase the plugin's speed a little.
