@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: tomewer
+Contributors: tomewer, titopandub
 Donate link: http://www.leavingworkbehind.com/easy-tweet-embed/
 Tags: twitter
 Requires at least: 3.4.1
-Tested up to: 3.4.1
-Stable tag: 1.5.1
+Tested up to: 3.4.2
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,8 @@ Just click the Easy Tweet Embed button in your Visual Editor, add the anchor tex
 
 Either:
 
-1. Upload `easy-tweet-embed.php` to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+1. Upload "easy-tweet-embed.php" to the "/wp-content/plugins/" directory
+2. Activate the plugin through the "Plugins" menu in WordPress
 
 Or:
 
@@ -31,7 +31,7 @@ Or:
 
 == Frequently Asked Questions ==
 
-There have been no FAQs yet.
+There have been no frequently asked questions yet.
 
 == Screenshots ==
 
@@ -42,10 +42,24 @@ There have been no FAQs yet.
 
 == Changelog ==
 
+= 1.6.2 =
+Revision for uncommitted file.
+
+= 1.6.1 =
+* Shortcut feature added.
+* Speed increase.
+* Easy Tweet Embed button added to Distraction Free Editor toolbar.
+
 = 1.5.1 =
 * First public release.
 
 == Upgrade Notice ==
 
+= 1.6.2 =
+Revision for uncommitted file.
+
+= 1.6.1 =
+This version of Easy Tweet Embed adds a keyboard shortcut for adding new tweets (Windows: Ctrl + Shift + E, or Mac: Cmd + Shift + E). It also adds the Easy Tweet Embed button to the Distraction Free Editor. Finally, we have been able to increase the plugin's speed a little.
+
 = 1.5.1 =
-First public release
+First public release.
