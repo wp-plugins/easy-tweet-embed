@@ -66,13 +66,20 @@ jQuery(document).ready(function(){
 	// handles the click event of the submit button
 	submitButton.click(function(){
 		if(tCounter() >= 0 && anchorText.val() !== "") {
-			
+			// var tweetString = tweet.val().split("[tweetlink]");
+
 			var tweetUrl = '<a class="embedtweet" title="' + anchorText.val();
 			tweetUrl += '" href="https://twitter.com/intent/tweet?text=';
-			tweetUrl += encodeURIComponent(jQuery('#embedtweet-tweet').val());
+			// for (var i = 0; i < tweetString.length; i++) {
+			// 	tweetUrl += encodeURIComponent(tweetString[i]);
+			// 	tweetUrl += '[tweetlink]';
+			// };
+			tweetUrl += encodeURIComponent(tweet.val());
+
 			tweetUrl += '" rel="nofollow" target="_blank">';
 			tweetUrl += anchorText.val() + '</a>';
-			
+			tweetUrl = tweetUrl.replace(/%5Btweetlink%5D/g, "[tweetlink]");
+
 			// inserts the shortcode into the active editor and close it
 			tinyMCEPopup.editor.execCommand('mceInsertContent', 0, tweetUrl);
 			tinyMCEPopup.close();

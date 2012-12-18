@@ -3,14 +3,14 @@
 		init : function(ed, url) {
 			ed.addCommand('embedtweetcmd', function() {
 				ed.windowManager.open({
-				  url: url + '/file.php',
-				  width: 600 + parseInt(ed.getLang("media.delta_width",0)),
-				  height: 200 + parseInt(ed.getLang("media.delta_height",0)),
+				  	url: url + '/file.php',
+				  	width: 600 + parseInt(ed.getLang("media.delta_width",0)),
+				  	height: 200 + parseInt(ed.getLang("media.delta_height",0)),
 					title: 'Easy Embed Tweet',
 					inline: 1
 				}, {
-				  plugin_url : url,
-					s_permalink : getPostID
+				  	plugin_url : url,
+					s_permalink : "[tweetlink]"
 				});
 			}),
 			ed.addButton('embedtweet', {
