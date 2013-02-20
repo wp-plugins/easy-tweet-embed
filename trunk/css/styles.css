@@ -1,0 +1,155 @@
+body {
+	font-family:sans-serif; 
+	font-size:13px;
+	padding:0;
+	margin:8px 8px 0 8px;
+	width:580px;
+	height:180px;
+}
+input, select, textarea, button {
+	font-size:13px;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+          transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+.form-horizontal .control-group 
+{
+	margin: 6px 6px 7px 6px;
+}
+.form-horizontal .control-label 
+{
+  float: left;
+  width: 90px;
+  padding-top: 5px;
+	font-weight: bold;
+}
+.form-horizontal .controls 
+{
+	margin-left: 90px;
+}
+.form-horizontal input, .form-horizontal textarea 
+{
+	display: inline-block;
+	margin-bottom: 0;
+	width: 450px;
+}
+.help-block 
+{
+  display: block;
+  margin-top: 0px;
+	font-size: 10px;
+}
+.placeholder 
+{
+  color: #aaa;
+}
+
+/* Buttons */
+.button,.button-secondary,.submit input,input[type=button],input[type=submit]
+{
+  color:#464646;
+  border-color:#bbb;
+}
+
+.button:hover,.button-secondary:hover,.submit input:hover,input[type=button]:hover,input[type=submit]:hover
+{
+  color:#000;
+  border-color:#666;
+}
+
+.button,.submit input,.button-secondary
+{
+  background:#f2f2f2 url(images/white-grad.png) repeat-x scroll left top;
+  text-shadow:rgba(255,255,255,1) 0 1px 0;
+}
+
+.button:active,.submit input:active,.button-secondary:active
+{
+  background:#eee url(images/white-grad-active.png) repeat-x scroll left top;
+}
+
+input.button-primary,button.button-primary,a.button-primary
+{
+  font-weight:700;
+  color:#fff;
+  background:#21759B url(images/button-grad.png) repeat-x scroll left top;
+  text-shadow:rgba(0,0,0,0.3) 0 -1px 0;
+  border-color:#298cba;
+}
+
+input.button-primary:active,button.button-primary:active,a.button-primary:active
+{
+  background:#21759b url(images/button-grad-active.png) repeat-x scroll left top;
+  color:#eaf2fa;
+}
+
+input.button-primary:hover,button.button-primary:hover,a.button-primary:hover,a.button-primary:focus,a.button-primary:active
+{
+  color:#eaf2fa;
+  border-color:#13455b;
+}
+
+.button-disabled,.button[disabled],.button:disabled,.button-secondary[disabled],.button-secondary:disabled,a.button.disabled
+{
+  color:#aaa!important;
+  border-color:#ddd!important;
+}
+
+.button-primary-disabled,.button-primary[disabled],.button-primary:disabled
+{
+  color:#9FD0D5!important;
+  background:#298CBA!important;
+}
+
+.submit
+{
+  -webkit-border-bottom-left-radius:3px;
+  -webkit-border-bottom-right-radius:3px;
+  border-bottom-left-radius:3px;
+  border-bottom-right-radius:3px;
+  margin:5px 0;
+  padding:1.5em 0;
+}
+
+.submit input,.button,input.button,.button-primary,input.button-primary,.button-secondary,input.button-secondary,.button-highlighted,input.button-highlighted,#postcustomstuff .submit input
+{
+  text-decoration:none;
+  font-size:12px!important;
+  line-height:13px;
+  cursor:pointer;
+  -webkit-border-radius:11px;
+  border-radius:11px;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
+  border-style:solid;
+  border-width:1px;
+  padding:3px 8px;
+}
