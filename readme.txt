@@ -14,7 +14,7 @@ Allows you to easily embed pre-populated tweets within links in your blog posts/
 
 Here’s a quick video that shows you exactly what Easy Tweet Embed does:
 
-<div style="margin: 0 auto;"><iframe width="480" height="360" src="http://www.youtube.com/embed/A1mfXt7Ud8o?rel=0" frameborder="0" allowfullscreen></iframe></div>
+[youtube http://www.youtube.com/watch?v=A1mfXt7Ud8o]
 
 I have found that the number of times a blog post is tweeted can be improved by more than 25% by embedding pre-populated tweets into links in your posts.
 
