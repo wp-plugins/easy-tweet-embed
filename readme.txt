@@ -16,7 +16,7 @@ Here’s a quick video that shows you exactly what Easy Tweet Embed does:
 
 [youtube http://www.youtube.com/watch?v=A1mfXt7Ud8o]
 
-I have found that the number of times a blog post is tweeted can be improved by more than 25% by embedding pre-populated tweets into links in your posts.
+I have found that the number of times a blog post is tweeted can be improved by more than 25% by embedding pre-populated tweets into links in your posts. 
 
 Easy Tweet Embed allows you to easily add such links to your blog posts/pages which can lead to more shares, more traffic, and more subscribers.
 
